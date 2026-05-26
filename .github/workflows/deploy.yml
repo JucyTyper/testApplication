@@ -107,4 +107,4 @@ jobs:
 
     - name: Production Health Check
       run: |
-        curl -f https://apniapp-prod-dhgfaebsa9ayfyhs.canadacentral-01.azurewebsites.net/ping
+        curl -f https://apniapp-enchgcgefxe3bsdx.canadacentral-01.azurewebsites.net/ping

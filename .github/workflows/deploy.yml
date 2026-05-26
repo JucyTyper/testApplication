@@ -70,7 +70,7 @@ jobs:
       uses: azure/webapps-deploy@v3
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        slot-name: apniapp
+        slot-name: prod
         package: publish
 
   production-approval:
@@ -101,8 +101,8 @@ jobs:
         az webapp deployment slot swap \
           --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
           --name ${{ env.AZURE_WEBAPP_NAME }} \
-          --slot apniapp \
-          --target-slot apniapp-prod
+          --slot apniapp-prod \
+          --target-slot production
 
     - name: Production Health Check
       run: |

@@ -10,9 +10,6 @@ env:
   AZURE_RESOURCE_GROUP: apniapp_group
   DOTNET_VERSION: '8.0.x'
 
-defaults:
-  run:
-    working-directory: myWebApi
 
 permissions:
   id-token: write
@@ -21,6 +18,11 @@ permissions:
 jobs:
 
   build:
+
+    defaults:
+      run:
+        working-directory: myWebApi
+      
     runs-on: ubuntu-latest
 
     steps:
@@ -73,12 +75,18 @@ jobs:
         slot-name: prod
         package: publish
 
-  swap-to-production:
+  production-approval:
     runs-on: ubuntu-latest
     needs: deploy-staging
 
-    environment:
-    name: production
+    steps:
+    - name: Approval Placeholder
+      run: echo "Approved"
+
+  swap-to-production:
+    runs-on: ubuntu-latest
+    needs: production-approval
+
 
     steps:
 

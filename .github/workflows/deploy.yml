@@ -102,7 +102,7 @@ jobs:
         az webapp deployment slot swap \
           --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
           --name ${{ env.AZURE_WEBAPP_NAME }} \
-          --slot apniapp-prod \
+          --slot prod \
           --target-slot production
 
     - name: Production Health Check
